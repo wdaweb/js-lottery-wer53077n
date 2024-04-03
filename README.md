@@ -1,7 +1,55 @@
-# 泰山職訓前端班威力彩作業
-製作隨機數字 function，提供最小整數和最大整數，回傳一個區間內的隨機整數
-```js
-const rand = (min, max) => {
-  // 程式碼...
-}
-```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min)) + min
+        }
+        const groupA = []
+        //for 方法1
+        // for (let i = 0; i < 6; i++) {
+        //     const number = rand(1, 38)
+        //     if (groupA.includes(number)) {
+        //         i--
+        //     } else {
+        //         groupA.push(number)
+        //     }
+        //     console.log(groupA)
+        // }
+        //while 方法2
+        while (groupA.length < 6) {
+            const number = rand(1, 38)
+            if (!groupA.includes(number)) {
+                groupA.push(number)
+            }
+        }
+        console.log(groupA)
+
+        //方法3
+        //列出1~38的陣列
+        groupA.length = 0
+
+        const numbers = Array.from({ length: 38 }, (value, index) => {
+            return index + 1
+        })
+        console.log(numbers)
+
+        for (let i = 0; i < 6; i++) {
+            const index = random(0, numbers.length - 1)
+            groupA.push(numbers[index])
+            numbers.splice(index, 1)
+        }
+        console.log(groupA)
+    </script>
+
+</body>
+
+</html>
